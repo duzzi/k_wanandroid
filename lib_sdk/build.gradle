@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.android.sourceCompatibility
+        targetCompatibility rootProject.ext.android.targetCompatibility
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation rootProject.ext.depend.kotlinStdlib
+    implementation rootProject.ext.depend.ktx
+    implementation rootProject.ext.depend.appcompat
+    implementation rootProject.ext.depend.material
+
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:converter-gson:2.6.1'
+    api "com.squareup.okhttp3:okhttp:4.9.0"
+    api "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    api 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+
+    api "io.reactivex.rxjava3:rxjava:3.0.9"
+    api 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    api 'com.google.code.gson:gson:2.8.6'
+    api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+}

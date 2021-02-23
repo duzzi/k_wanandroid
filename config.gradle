@@ -1,0 +1,21 @@
+ext {
+    android = [
+            applicationId      : "com.duzzi.kotlin.wanandroid",
+            compileSdkVersion  : 30,
+            minSdkVersion      : 19,
+            targetSdkVersion   : 30,
+            versionCode        : 1,
+            versionName        : "1.0",
+            sourceCompatibility: JavaVersion.VERSION_1_8,
+            targetCompatibility: JavaVersion.VERSION_1_8,
+    ]
+    depend = [
+            kotlinStdlib    : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            ktx             : "androidx.core:core-ktx:1.2.0",
+
+            appcompat       : "androidx.appcompat:appcompat:1.2.0",
+            material        : "com.google.android.material:material:1.2.1",
+            constraintlayout: "androidx.constraintlayout:constraintlayout:2.0.1",
+            recyclerview    : "androidx.recyclerview:recyclerview:1.1.0",
+    ]
+}
