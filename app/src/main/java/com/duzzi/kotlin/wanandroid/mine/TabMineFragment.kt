@@ -3,9 +3,9 @@ package com.duzzi.kotlin.wanandroid.mine
 import android.view.View
 import com.duzzi.kotlin.wanandroid.databinding.FragmentTabMineBinding
 import com.duzzi.sdk.core.bean.base.BaseViewModel
-import com.duzzi.ui.base.BaseFragment
+import com.duzzi.ui.base.LifecycleFragment
 
-class TabMineFragment : BaseFragment<BaseViewModel, FragmentTabMineBinding>() {
+class TabMineFragment : LifecycleFragment<BaseViewModel, FragmentTabMineBinding>() {
 
     companion object {
         fun newInstance() = TabMineFragment()
@@ -15,8 +15,10 @@ class TabMineFragment : BaseFragment<BaseViewModel, FragmentTabMineBinding>() {
     }
 
     override fun initView(view: View) {
+
     }
 
     override fun loadData() {
+        showSuccess()
     }
 }

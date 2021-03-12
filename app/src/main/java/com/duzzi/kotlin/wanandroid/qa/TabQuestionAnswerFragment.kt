@@ -13,8 +13,7 @@ class TabQuestionAnswerFragment : ArticleFragment<QuestionAnswerViewModel, Fragm
 
     override fun initView(view: View) {
         super.initView(view)
-        binding.fakeStatusBar.visibility = View.VISIBLE
-        binding.tvTitle.visibility = View.VISIBLE
+        showActionBar()
     }
 
     override fun loadMore() {

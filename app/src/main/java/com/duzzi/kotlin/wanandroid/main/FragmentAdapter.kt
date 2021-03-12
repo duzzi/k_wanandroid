@@ -1,11 +1,11 @@
-package com.duzzi.kotlin.wanandroid
+package com.duzzi.kotlin.wanandroid.main
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.blankj.utilcode.util.CollectionUtils
 
-class MainAdapter(fragments: ArrayList<Fragment>, fm: FragmentManager, behavior: Int) :
+class FragmentAdapter(fragments: ArrayList<Fragment>, fm: FragmentManager, behavior: Int) :
     FragmentPagerAdapter(fm, behavior) {
 
     private val mFragments = fragments

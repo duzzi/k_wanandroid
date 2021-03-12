@@ -14,6 +14,6 @@ class WeChatListViewModel : ArticleViewModel() {
 
 
     fun getWeChatList(cid: Int, index: Int) {
-        DataManager.instance.getWeChatList(cid, index).execute(BaseObserver(weChatListLiveData))
+        DataManager.instance.getWeChatList(cid, index).execute(BaseObserver(weChatListLiveData,loadState))
     }
 }

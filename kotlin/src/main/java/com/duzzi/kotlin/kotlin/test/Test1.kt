@@ -45,8 +45,8 @@ fun twoSum1(nums: IntArray, target: Int): IntArray {
     val max = 10.0.pow(9)
     val min = -max
 
-    if (target !in min..max) return array
-    for (num in nums) if (target !in min..max) return array
+    if (target < min || target > max) return array
+    for (num in nums) if (target < min || target > max) return array
     if (nums.size < 2 || nums.size > 10.0.pow(3.0)) return array
     for (i in nums.indices) {
         for (j in i + 1 until nums.size) {

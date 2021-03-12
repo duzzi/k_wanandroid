@@ -1,4 +1,4 @@
-package com.duzzi.kotlin.wanandroid
+package com.duzzi.kotlin.wanandroid.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURR
 import androidx.viewpager.widget.ViewPager
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
+import com.duzzi.kotlin.wanandroid.R
 import com.duzzi.kotlin.wanandroid.databinding.ActivityMainBinding
 import com.duzzi.kotlin.wanandroid.home.ui.TabHomeFragment
 import com.duzzi.kotlin.wanandroid.mine.TabMineFragment
@@ -52,7 +53,7 @@ class MainActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener {
         list.add(TabQuestionAnswerFragment.newInstance())
         list.add(TabMineFragment.newInstance())
         binding.mainViewPager.offscreenPageLimit = 5
-        binding.mainViewPager.adapter = MainAdapter(list, supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
+        binding.mainViewPager.adapter = FragmentAdapter(list, supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
         binding.mainViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
             }

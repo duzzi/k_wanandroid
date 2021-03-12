@@ -13,6 +13,6 @@ class ProjectViewModel : BaseViewModel() {
 
 
     fun getProjectTree() {
-        DataManager.instance.getProjectCategory().execute(BaseObserver(projectCategoryLiveData))
+        DataManager.instance.getProjectCategory().execute(BaseObserver(projectCategoryLiveData,loadState))
     }
 }

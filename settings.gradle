@@ -1,3 +1,4 @@
+include ':lib_web'
 include ':kotlin'
 include ':lib_ui'
 include ':lib_sdk'

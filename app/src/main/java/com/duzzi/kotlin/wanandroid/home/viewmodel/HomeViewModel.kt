@@ -11,11 +11,11 @@ class HomeViewModel : ArticleViewModel() {
     val bannerLiveData = MutableLiveData<BaseRsp<List<BannerItem>>>()
 
     fun getBanner() {
-        DataManager.instance.getBanner().execute(BaseObserver(bannerLiveData))
+        DataManager.instance.getBanner().execute(BaseObserver(bannerLiveData,loadState))
     }
 
     fun getArticles(pageIndex: Int) {
-        DataManager.instance.getHomeArticles(pageIndex).execute(BaseObserver(articleLiveData))
+        DataManager.instance.getHomeArticles(pageIndex).execute(BaseObserver(articleLiveData,loadState))
     }
 
 

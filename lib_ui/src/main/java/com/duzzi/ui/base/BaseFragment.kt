@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.duzzi.sdk.core.bean.base.BaseViewModel
 import com.duzzi.ui.utils.ClassUtil
+import com.kingja.loadsir.core.LoadService
+import com.kingja.loadsir.core.LoadSir
 
 abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
     var firstLoad: Boolean = true
@@ -19,6 +21,10 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
     lateinit var viewModel: VM
 
     lateinit var mContext: Context
+
+    lateinit var loadService: LoadService<*>
+
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mContext = context
@@ -31,8 +37,14 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
         val clazz = ClassUtil.getClass<VB>(this, 1)
         val method = clazz.getMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
         _binding = method.invoke(null, layoutInflater, container, false) as VB
-        return _binding!!.root
+        val view = _binding!!.root
+        loadService = LoadSir.getDefault().register(view) {
+            reload()
+        }
+        return loadService.loadLayout
     }
+
+    abstract fun reload()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

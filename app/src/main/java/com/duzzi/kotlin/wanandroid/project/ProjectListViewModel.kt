@@ -14,6 +14,6 @@ class ProjectListViewModel : ArticleViewModel() {
 
 
     fun getProjectList(index: Int, cid: Int) {
-        DataManager.instance.getProjectList(index, cid).execute(BaseObserver(projectListLiveData))
+        DataManager.instance.getProjectList(index, cid).execute(BaseObserver(projectListLiveData,loadState))
     }
 }

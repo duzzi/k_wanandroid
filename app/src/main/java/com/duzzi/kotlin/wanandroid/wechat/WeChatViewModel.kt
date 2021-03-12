@@ -13,6 +13,6 @@ class WeChatViewModel : BaseViewModel() {
 
 
     fun getWeChatCategory() {
-        DataManager.instance.getWeChatCategory().execute(BaseObserver(weChatCategoryLiveData))
+        DataManager.instance.getWeChatCategory().execute(BaseObserver(weChatCategoryLiveData,loadState))
     }
 }

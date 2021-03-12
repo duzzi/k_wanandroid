@@ -6,10 +6,11 @@ import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.CollectionUtils
 import com.duzzi.kotlin.wanandroid.base.toHtml
 import com.duzzi.kotlin.wanandroid.databinding.FragmentTabProjectBinding
-import com.duzzi.ui.base.BaseFragment
+import com.duzzi.kotlin.wanandroid.databinding.LayoutActionBarBinding
+import com.duzzi.ui.base.LifecycleFragment
 import com.duzzi.ui.view.VP2Adapter
 
-class TabWeChatFragment : BaseFragment<WeChatViewModel, FragmentTabProjectBinding>() {
+class TabWeChatFragment : LifecycleFragment<WeChatViewModel, FragmentTabProjectBinding>() {
 
     companion object {
         @JvmStatic
@@ -35,9 +36,11 @@ class TabWeChatFragment : BaseFragment<WeChatViewModel, FragmentTabProjectBindin
     }
 
     override fun initView(view: View) {
-
-
+        val includeBinding = LayoutActionBarBinding.bind(binding.root)
+        includeBinding.fakeStatusBar.visibility = View.VISIBLE
+        includeBinding.tvTitle.visibility = View.VISIBLE
     }
+
 
     override fun loadData() {
         viewModel.getWeChatCategory()

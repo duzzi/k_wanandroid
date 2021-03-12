@@ -3,7 +3,7 @@ package com.duzzi.kotlin.kotlin
 import kotlin.math.pow
 
 
-fun main(s: Array<String>) {
+fun main() {
     val test = Test()
     test.test()
     test.expand()
@@ -26,7 +26,12 @@ fun main(s: Array<String>) {
 
     println(10.0.pow(3.0))
 
+    println(foo(5))
 }
+
+//递归需要声明返回类型
+fun foo(n: Int): Int = if (n <= 0) 1 else n * foo(n - 1)
+
 
 
 fun Test.expand() {

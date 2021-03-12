@@ -15,7 +15,7 @@ class QuestionAnswerViewModel : ArticleViewModel() {
 
     fun getQuestionAnswer(pageIndex: Int){
         LogUtils.i()
-        DataManager.instance.getQuestionAnswer(pageIndex).execute(BaseObserver(liveData))
+        DataManager.instance.getQuestionAnswer(pageIndex).execute(BaseObserver(liveData,loadState))
     }
 
 }
