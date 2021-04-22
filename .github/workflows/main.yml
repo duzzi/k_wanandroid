@@ -13,23 +13,23 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Build release APK
+      - name: Build Debug APK
         run: bash ./gradlew assembleRelease -s
       # 利用upload-artifact实现build结果的保存（可以在Actions的控制台下载压缩文件）
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
-          # 设置压缩文件的名称，在控制台会得到app-release.zip文件的下载链接
-          # 下载后解压缩，里面直接可以看到app-release.apk，没有其他东西
-          name: app-release
-          path: app/build/outputs/apk/release/app-release.apk
+          # 设置压缩文件的名称，在控制台会得到app-debug.zip文件的下载链接
+          # 下载后解压缩，里面直接可以看到app-debug.apk，没有其他东西
+          name: app-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
       - name: Upload PGYER File
         id: pgyer
         uses: xtayga/upload-pgyer-action@master
         with:
           url: https://www.pgyer.com/apiv2/app/upload
-          forms: '{"_api_key":"413344552d4330923b595db0957f41df","buildInstallType":1,"buildPassword":"","buildName":"app-release"}'
-          fileForms: '{"file":"app/build/outputs/apk/release/app-release.apk"}'
+          forms: '{"_api_key":"413344552d4330923b595db0957f41df","buildInstallType":1,"buildPassword":"","buildName":"app-debug"}'
+          fileForms: '{"file":"app/build/outputs/apk/debug/app-debug.apk"}'
       - run: echo "🍏 This job's status is ${{ job.status }}."
 #  Explore-GitHub-Actions:
 #    runs-on: ubuntu-latest
