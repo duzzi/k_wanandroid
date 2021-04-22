@@ -20,9 +20,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           # 设置压缩文件的名称，在控制台会得到app-release.zip文件的下载链接
-          # 下载后解压缩，里面直接可以看到app-debug.apk，没有其他东西
+          # 下载后解压缩，里面直接可以看到app-release.apk，没有其他东西
           name: app-release
-          path: app/build/outputs/apk/debug/app-release.apk
+          path: app/build/outputs/apk/release/app-release.apk
       - name: Upload PGYER File
         id: pgyer
         uses: xtayga/upload-pgyer-action@master
