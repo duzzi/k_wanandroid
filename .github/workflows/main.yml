@@ -14,7 +14,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Build Debug APK
-        run: bash ./gradlew assembleRelease -s
+        run: bash ./gradlew assembleDebug -s
       # 利用upload-artifact实现build结果的保存（可以在Actions的控制台下载压缩文件）
       - name: Upload APK
         uses: actions/upload-artifact@v2
