@@ -1,6 +1,6 @@
 package com.duzzi.kotlin.kotlin.learn.learn5
 
-data class Student(var name: String, val sex: String){
+data class Student(var name: String, val sex: String) {
     override fun toString(): String {
         return "{$name $sex}"
     }
@@ -24,7 +24,9 @@ fun main() {
         println(name)
     }
 
-    var list = listOf(1, 2, 3, 4, 5)
+    val list = listOf(1, 2, 3, 4, 5)
+    list.forEach(::print)
+    list.forEach { print("$it ") }
 //    var map = list.map { it * 10 }
     var map = list.map { it -> it * 10 }
     println(map)
@@ -52,7 +54,7 @@ fun main() {
     val student4 = Student("Tom4", "female")
     val student5 = Student("Tom5", "male")
 
-    val students= listOf(student1,student2,student3,student4,student5)
+    val students = listOf(student1, student2, student3, student4, student5)
 
     var groupBy = students.groupBy { it.sex }
     println(groupBy)

@@ -44,6 +44,7 @@ class WebActivity : AppCompatActivity() {
             it.title = title
             it.setDisplayHomeAsUpEnabled(true);//添加默认的返回图标
             it.setHomeButtonEnabled(true); //设置返回键可用
+            it.hide()
         }
 
         val view = findViewById<View>(R.id.ll_root)
