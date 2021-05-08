@@ -32,7 +32,7 @@ class ArticleAdapter(data: MutableList<Article>?) :
                 holder.getView<ImageView>(R.id.ivCover).visibility = View.VISIBLE
                 holder.getView<ImageView>(R.id.ivCover).loadImage(context, envelopePic)
             }
-            holder.getView<View>(R.id.ll_item).setOnClickListener {
+            holder.getView<View>(R.id.item_view).setOnClickListener {
                 ARouter.getInstance().build("/web/WebActivity")
                     .withString(TITLE, title)
                     .withString(URL, link)
